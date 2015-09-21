@@ -70,7 +70,7 @@ void* Get__Win32ClientInfo()
 	__asm
 	{
 		  mov     eax,dword ptr fs:[00000018h] // eax=TEB
-          mov     eax,dword ptr [eax+0x6cc] // Win32ClientInfo
+                  mov     eax,dword ptr [eax+0x6cc] // Win32ClientInfo
 		  mov	  address,eax;
 	}
 
@@ -165,7 +165,7 @@ __declspec(naked) BOOL NTAPI NtUserDefSetText(
 {
     __asm
     {
-            mov     eax, 116Dh
+                        mov     eax, 116Dh
 			mov     edx, 7FFE0300h	
 			call    dword ptr [edx]
 			retn    8
