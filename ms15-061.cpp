@@ -16,7 +16,7 @@ mail :   Firozimaysam@gmail.com
 twitter : https://twitter.com/R00tkitSMM 
 
 */
-// TODO: check OS version , safe fail 
+// TODO: check OS version , Code refactoring
 /*
 
 ref: 
