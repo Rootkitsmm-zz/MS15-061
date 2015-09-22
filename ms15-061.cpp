@@ -248,8 +248,6 @@ void CreateSecondWindow()
 	
 	if(!RegisterClassExW(&wc))
     {
-        MessageBox(NULL, L"Window Registration Failed!", L"Error!",
-            MB_ICONEXCLAMATION | MB_OK);
         return ;
     }
 
@@ -265,8 +263,7 @@ void CreateSecondWindow()
 
 		if(Secondhwnd[i] == NULL)
 		{
-			MessageBox(NULL, L"Window Creation Failed!", L"Error!",
-				MB_ICONEXCLAMATION | MB_OK);
+
 			return ;
 		}
 	}
@@ -437,8 +434,6 @@ int  main()
 	{
 		if(!RegisterClassExW(&wc))
 		{
-			MessageBox(NULL, L"Window Registration Failed!", L"Error!",
-				MB_ICONEXCLAMATION | MB_OK);
 			return 0;
 		}
 
@@ -453,8 +448,6 @@ int  main()
 
 		if(hwnd == NULL)
 		{
-			MessageBox(NULL, L"Window Creation Failed!", L"Error!",
-				MB_ICONEXCLAMATION | MB_OK);
 			return 0;
 		}
 
