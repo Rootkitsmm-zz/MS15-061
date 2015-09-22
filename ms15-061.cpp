@@ -343,7 +343,7 @@ void init()
 
 
 	/*
-	for save exit  : trick like  Browser Fack vTable : 
+	for save exit  : i used trick like  Browser Fake vTable : 
 	allocate 0x0c0c0c0c address and  fill tagWND with 0x0c0c0c0c 
 	so every dereference  will loop in 0x0c0c0c0c
 
